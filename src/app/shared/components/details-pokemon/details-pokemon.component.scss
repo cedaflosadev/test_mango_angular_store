@@ -1,0 +1,16 @@
+.panel-pokemon {
+    ::ng-deep .mat-expansion-panel-content {
+        max-height: 100px;
+        overflow-y: auto;
+    }
+}
+
+.dialog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

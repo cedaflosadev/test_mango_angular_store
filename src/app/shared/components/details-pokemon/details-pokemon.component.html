@@ -1,0 +1,84 @@
+<div *ngIf="data" class="container">
+
+    <div mat-dialog-title class="dialog-title">
+        <h1> <b>{{data.name | uppercase}}</b></h1>
+        <button class="close text-danger mat-elevation-z2 " mat-button aria-label="close dialog"
+            (click)="closeModal()">X</button>
+    </div>
+    <mat-dialog-content>
+
+        <div class="mx-auto text-center">
+            <img src="{{data.sprites.front_default}}" alt="img_pokemon">
+        </div>
+        <mat-accordion>
+            <mat-expansion-panel class="panel-pokemon" (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <b>Movimientos</b>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+
+                <div *ngFor="let eleMove of data.moves">
+                    <span> {{eleMove.move.name}}</span>
+                </div>
+
+
+            </mat-expansion-panel>
+            <mat-expansion-panel class="panel-pokemon" (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <b>Habilidades</b>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div *ngFor="let eleAbi of data.abilities">
+                    <span> {{eleAbi.ability.name}}</span>
+                </div>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel class="panel-pokemon" (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <b>Formas</b>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div *ngFor="let eleForm of data.forms">
+                    <span> {{eleForm.name}}</span>
+                </div>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel class="panel-pokemon" (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <b>Estados</b>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div *ngFor="let eleAbi of data.stats">
+                    <span><b> {{eleAbi.stat.name}}</b>: {{eleAbi.base_stat}}</span>
+                </div>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel class="panel-pokemon" (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <b>Tipo</b>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div *ngFor="let eleAbi of data.types">
+                    <span> {{eleAbi.type.name}}</span>
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+        <br>
+    </mat-dialog-content>
+</div>
